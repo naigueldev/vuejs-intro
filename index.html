@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/main.css">
-    </head>
-    <body>
-        <div id="app">
-            <h1>{{product}}</h1>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    
+    <div class="nav-bar"></div>
+    
+    <div id="app">
+        
+        <div class="cart">
+            <p>Cart ({{ cart.length }})</p>
         </div>
         
-        
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <script src="js/main.js"></script>
-    </body>
+        <product :premium="premium" @add-to-cart="updateCart"></product>
+
+        <product-review @review-submitted="addReview"></product-review>
+    </div>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/main.js"></script>
+</body>
 </html>
