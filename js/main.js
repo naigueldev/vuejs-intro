@@ -68,7 +68,7 @@ Vue.component('product', {
                     variantId: 2235,
                     variantColor: "#435672",
                     variantImage: "./images/socks-blue.png",
-                    variantQuantity: 1
+                    variantQuantity: 0
                 }
             ],
             reviews: []
