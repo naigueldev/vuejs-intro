@@ -60,13 +60,13 @@ Vue.component('product', {
             variants: [
                 {
                     variantId: 2234,
-                    variantColor: "green",
+                    variantColor: "#2a935b",
                     variantImage: "./images/socks-green.jpg",
                     variantQuantity: 10
                 },
                 {
                     variantId: 2235,
-                    variantColor: "blue",
+                    variantColor: "#435672",
                     variantImage: "./images/socks-blue.png",
                     variantQuantity: 1
                 }
@@ -181,9 +181,9 @@ Vue.component('product-tabs', {
         }
     },
     template: `
-    <div>
+    <div class="tabs-section">
           
-    <ul>
+    <ul class="ul-section">
         <span class="tabs" 
             :class="{ activeTab: selectedTab === tab }"
             v-for="(tab, index) in tabs"
@@ -192,18 +192,20 @@ Vue.component('product-tabs', {
         >{{ tab }}</span>
     </ul>
     
-    <div v-show="selectedTab === 'Reviews'">
-        <p v-if="!reviews.length">There are no reviews yet.</p>
+    <div v-show="selectedTab === 'Reviews'" class="reviews-section">
+        <p v-if="!reviews.length" class="no-review">There are no reviews yet.</p>
         <ul v-else>
             <li v-for="(review, index) in reviews" :key="index">
-              <p>{{ review.name }}</p>
-              <p>Rating:{{ review.rating }}</p>
-              <p>{{ review.review }}</p>
+              <p class="review-name">{{ review.name }}</p>
+              <p class="review-rating">
+                <span v-for="n in review.rating"> <i class="fa fa-star icon-rating"></i> </span>
+              </p>
+              <p class="review-message">{{ review.review }}</p>
             </li>
         </ul>
     </div>
 
-    <div v-show="selectedTab === 'Make a Review'">
+    <div v-show="selectedTab === 'Make a Review'" class="form-review-section">
         <product-review></product-review>
     </div>
     
