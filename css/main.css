@@ -91,3 +91,7 @@ body {
   .outOfStock {
     text-decoration: line-through;
   }
+  .tabs {
+    margin-left: 20px;
+    cursor: pointer;
+}
